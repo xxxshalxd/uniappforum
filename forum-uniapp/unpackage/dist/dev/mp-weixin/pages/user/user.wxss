@@ -1,0 +1,63 @@
+.buttonGroup.data-v-0f7520f0 {
+  display: flex;
+  margin: 50rpx;
+}
+.register.data-v-0f7520f0 {
+  display: flex;
+  justify-content: flex-end;
+  flex: 1;
+  text-align: right;
+  margin-left: auto;
+  margin: 20rpx;
+}
+.user-posts.data-v-0f7520f0 {
+  margin-top: 20px;
+}
+.registerBtn.data-v-0f7520f0 {
+  display: flex;
+  justify-content: space-around;
+  margin: 30rpx;
+}
+.auth-pages.data-v-0f7520f0 {
+  padding: 20px;
+}
+.auth-form.data-v-0f7520f0 {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.user-info.data-v-0f7520f0 {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.user-posts.data-v-0f7520f0 {
+  margin-top: 20px;
+}
+.post-item.data-v-0f7520f0 {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+.post-title.data-v-0f7520f0 {
+  font-size: 18px;
+  font-weight: bold;
+}
+.post-content.data-v-0f7520f0 {
+  font-size: 18px;
+  margin-top: 10px;
+}
+.comment-item.data-v-0f7520f0 {
+  border: 1px solid #eee;
+  padding: 5px;
+  margin-top: 10px;
+}
+.error-message.data-v-0f7520f0 {
+  color: red;
+  margin-top: 20px;
+}
+.toRegister.data-v-0f7520f0:hover {
+  color: blue;
+  cursor: pointer;
+}

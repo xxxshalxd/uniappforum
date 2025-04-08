@@ -1,0 +1,14 @@
+{
+  "navigationStyle": "custom",
+  "enablePullDownRefresh": true,
+  "navigationBarTextStyle": "white",
+  "usingComponents": {
+    "u-navbar": "../../uni_modules/vk-uview-ui/components/u-navbar/u-navbar",
+    "u-tabs": "../../uni_modules/vk-uview-ui/components/u-tabs/u-tabs",
+    "u-popup": "../../uni_modules/vk-uview-ui/components/u-popup/u-popup",
+    "u-lazy-load": "../../uni_modules/vk-uview-ui/components/u-lazy-load/u-lazy-load",
+    "u-waterfall": "../../uni_modules/vk-uview-ui/components/u-waterfall/u-waterfall",
+    "affair": "../affair/affair",
+    "recommend": "../recommend/recommend"
+  }
+}

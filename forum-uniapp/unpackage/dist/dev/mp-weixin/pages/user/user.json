@@ -1,0 +1,14 @@
+{
+  "navigationStyle": "custom",
+  "navigationBarBackgroundColor": "#FFFFFF",
+  "usingComponents": {
+    "u-navbar": "../../uni_modules/vk-uview-ui/components/u-navbar/u-navbar",
+    "u-input": "../../uni_modules/vk-uview-ui/components/u-input/u-input",
+    "u-button": "../../uni_modules/vk-uview-ui/components/u-button/u-button",
+    "u-image": "../../uni_modules/vk-uview-ui/components/u-image/u-image",
+    "u-cell-item": "../../uni_modules/vk-uview-ui/components/u-cell-item/u-cell-item",
+    "u-tag": "../../uni_modules/vk-uview-ui/components/u-tag/u-tag",
+    "u-cell-group": "../../uni_modules/vk-uview-ui/components/u-cell-group/u-cell-group",
+    "u-modal": "../../uni_modules/vk-uview-ui/components/u-modal/u-modal"
+  }
+}

@@ -1,0 +1,63 @@
+#配置端口号
+server:
+  port: 10086
+
+  servlet:
+    session:
+      timeout: 3600
+
+#将会在本地的 10086 端口上监听 HTTP 请求。
+#配置数据库连接
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    #    应用了druid数据池
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    #    mysql 的jdbc驱动类
+    url: jdbc:mysql://localhost:3306/forum?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf8&useSSl=true
+    # 指定了数据库的连接 URL。 3306 端口上的 a_db_8 数据库。
+    #同时还设置了时区为 Asia/Shanghai，使用 UTF-8 编码，并启用 SSL。
+    username: root
+    password: root
+
+
+
+
+
+  jpa:
+      openInMemoryDatabase: false
+      showSql: true
+      hibernate:
+        ddlAuto: update
+  transaction:
+    management:
+      enabled: true
+  jackson:
+    time-zone: Asia/Shanghai
+  servlet:
+    multipart:
+      enabled: true
+      file-size-threshold: 0
+      max-file-size: 10MB
+      max-request-size: 100MB
+  web:
+    resources:
+      static-locations: file:D://Desktop/uniappforum/forum-uniapp/static/img/
+
+
+#配置 mybatis plus
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  #  指定了 MyBatis 输出日志的实现类，这里是将日志输出到标准输出流（控制台）。
+  global-config:
+    db-config:
+      update-strategy: not_empty   #在修改时只修改非空活非null的字段
+  #配置了 MyBatis Plus 在执行更新操作时的策略。not_empty 表示只更新非空且非null的字段，空字段将被忽略不更新。
+  mapper-locations: classpath*:/mapper/*.xml
+#  映射文件的路径
+
+file:
+  file:D://Desktop/uniappforum/forum-uniapp/static/img/
+
+

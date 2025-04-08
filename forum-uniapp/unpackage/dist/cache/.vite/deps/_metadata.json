@@ -1,0 +1,49 @@
+{
+  "hash": "fc02799a",
+  "configHash": "d9921eed",
+  "lockfileHash": "44bd1a90",
+  "browserHash": "5c591a5c",
+  "optimized": {
+    "pinia-plugin-persist-uni": {
+      "src": "../../../../../node_modules/pinia-plugin-persist-uni/dist/pinia-persist-uni.es.js",
+      "file": "pinia-plugin-persist-uni.js",
+      "fileHash": "b71e7a11",
+      "needsInterop": false
+    },
+    "axios": {
+      "src": "../../../../../node_modules/axios/index.js",
+      "file": "axios.js",
+      "fileHash": "1e2971eb",
+      "needsInterop": false
+    },
+    "axios-adapter-uniapp": {
+      "src": "../../../../../node_modules/axios-adapter-uniapp/index.js",
+      "file": "axios-adapter-uniapp.js",
+      "fileHash": "731de4df",
+      "needsInterop": true
+    },
+    "axios-miniprogram-adapter": {
+      "src": "../../../../../node_modules/axios-miniprogram-adapter/dist/index.esm.js",
+      "file": "axios-miniprogram-adapter.js",
+      "fileHash": "4eddb2f2",
+      "needsInterop": false
+    },
+    "base-64": {
+      "src": "../../../../../node_modules/base-64/base64.js",
+      "file": "base-64.js",
+      "fileHash": "01cd99d3",
+      "needsInterop": true
+    },
+    "crypto-js": {
+      "src": "../../../../../node_modules/crypto-js/index.js",
+      "file": "crypto-js.js",
+      "fileHash": "11b3d86b",
+      "needsInterop": true
+    }
+  },
+  "chunks": {
+    "chunk-3EJPJMEH": {
+      "file": "chunk-3EJPJMEH.js"
+    }
+  }
+}

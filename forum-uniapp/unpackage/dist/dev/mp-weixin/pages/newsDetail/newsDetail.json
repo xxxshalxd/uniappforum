@@ -1,0 +1,7 @@
+{
+  "navigationStyle": "custom",
+  "navigationBarBackgroundColor": "#FFFFFF",
+  "usingComponents": {
+    "u-navbar": "../../uni_modules/vk-uview-ui/components/u-navbar/u-navbar"
+  }
+}

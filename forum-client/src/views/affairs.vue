@@ -1,0 +1,220 @@
+<template>
+    <el-card>
+        <div class="tools"> <el-input placeholder="请输入时讯标题" v-model="searchQuery" @input="fetchNews" clearable
+                style="margin-bottom: 20px;" />
+            <el-button type="primary" @click="addNewsDialogVisible = true">添加时讯</el-button>
+        </div>
+
+        <el-table :data="news" stripe border>
+            <el-table-column prop="id" label="ID" width="80" align="center"></el-table-column>
+            <el-table-column prop="newsTitle" label="标题" align="center"></el-table-column>
+
+            <el-table-column prop="newsDate" label="更新日期" align="center"></el-table-column>
+            <el-table-column prop="newsContent" label="详情" show-overflow-tooltip align="center"></el-table-column>
+            <el-table-column label="操作" align="center">
+                <template #default="{ row }">
+                    <el-button type="primary" @click="editNews(row)">编辑</el-button>
+                    <el-button type="danger" @click="deleteNews(row.id)">删除</el-button>
+                </template>
+            </el-table-column>
+        </el-table>
+        <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange"
+            :current-page="pagination.currentPage" :page-sizes="[10, 20, 50]" :page-size="pagination.pageSize"
+            :total="pagination.total" layout="total, sizes, prev, pager, next, jumper" background />
+    </el-card>
+
+    <el-dialog title="编辑时讯" :model-value="dialogVisible" :show-close="false">
+        <el-form :model="newsItem" :rules="rules">
+            <el-form-item label="标题" prop="newsTitle">
+                <el-input v-model="newsItem.newsTitle"></el-input>
+            </el-form-item>
+
+
+            <el-form-item label="详情" prop="newsContent">
+                <el-input type="textarea" v-model="newsItem.newsContent"></el-input>
+            </el-form-item>
+            <el-form-item label="更新日期" prop="newsDate">
+                <el-input v-model="newsItem.newsDate"></el-input>
+            </el-form-item>
+        </el-form>
+        <template v-slot:footer>
+            <el-button @click="dialogVisible = false; resetNewsItem()">取消</el-button>
+            <el-button type="primary" @click="updateNews">确认</el-button>
+        </template>
+    </el-dialog>
+    <el-dialog title="添加时讯" v-model="addNewsDialogVisible" :show-close="false">
+        <el-form :model="newsItem" ref="addNews" :rules="rules">
+            <el-form-item label=" 标题" prop="newsTitle">
+                <el-input v-model="newsItem.newsTitle"></el-input>
+            </el-form-item>
+
+
+            <el-form-item label="详情" prop="newsContent">
+                <el-input type="textarea" v-model="newsItem.newsContent"></el-input>
+            </el-form-item>
+            <el-form-item label="更新日期" prop="newsDate">
+                <el-date-picker v-model="newsItem.newsDate" type="date" placeholder="选择日期"></el-date-picker>
+            </el-form-item>
+        </el-form>
+        <template v-slot:footer>
+            <el-button @click="handleCancel">取消</el-button>
+            <el-button type="primary" @click="createNews">确认添加</el-button>
+        </template>
+    </el-dialog>
+</template>
+
+<script setup>
+import { ref, onMounted, reactive, watch } from 'vue';
+import { ElMessage, ElMessageBox } from 'element-plus';
+import http from '../utils/http.js';
+
+const news = ref([]);
+const pagination = reactive({ currentPage: 1, pageSize: 10, total: 0 });
+const dialogVisible = ref(false);
+const newsItem = reactive({});
+const searchQuery = ref(''); // 绑定搜索框的变量
+const addNews = ref()
+
+onMounted(async () => {
+    await fetchNews();
+});
+
+watch(searchQuery, async (newVal) => {
+    if (newVal) {
+        await fetchNews();
+    }
+}, { immediate: true });
+
+const fetchNews = async () => {
+    try {
+        const response = await http.get('/api/admin/affairs', {
+            params: {
+                page: pagination.currentPage, size: pagination.pageSize,
+                title: searchQuery.value, // 假设搜索字段为标题
+            }
+        });
+        news.value = response.data.records;
+        pagination.total = response.data.total;
+        pagination.pageSize = response.data.size;
+    } catch (error) {
+        console.error('Error fetching news:', error);
+    }
+};
+
+const handleSizeChange = async (newSize) => {
+    pagination.pageSize = newSize;
+    await fetchNews();
+};
+
+const handleCurrentChange = async (newPage) => {
+    pagination.currentPage = newPage;
+    await fetchNews();
+};
+
+const editNews = (selectedNews) => {
+    Object.assign(newsItem, selectedNews);
+    dialogVisible.value = true;
+};
+
+const deleteNews = async (id) => {
+
+    ElMessageBox.confirm('确定删除该新闻？', '提示', {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        type: 'warning'
+    }).then(async () => {  //点击确定
+        await http.delete(`/api/admin/affairs/${id}`);
+        await fetchNews();
+        ElMessage({
+            type: 'success',
+            message: '删除成功',
+        })
+    }).catch(() => { //点击取消
+        ElMessage({
+            type: 'info',
+            message: '已取消操作！！',
+        })
+    })
+
+
+};
+
+const updateNews = async () => {
+    try {
+        await http.put(`/api/admin/affairs/${newsItem.id}`, newsItem);
+        dialogVisible.value = false;
+        ElMessage({
+            message: '更新成功',
+            type: 'success'
+        })
+        await fetchNews();
+
+    } catch (error) {
+        console.error('Error updating news:', error);
+    }
+};
+
+const addNewsDialogVisible = ref(false);
+
+const createNews = async () => {
+    addNews.value.validate(async (valid) => {
+        if (valid) {
+            try {
+                const response = await http.post('/api/admin/affairs', newsItem);
+                addNewsDialogVisible.value = false;
+                ElMessage({
+                    message: '添加成功',
+                    type: 'success'
+                });
+                addNews.value?.resetFields();
+                await fetchNews();
+            } catch (error) {
+                console.error('Error creating news:', error);
+            }
+        } else {
+            console.log('表单验证失败');
+            return false;
+        }
+    });
+
+
+
+};
+
+const handleCancel = () => {
+    addNewsDialogVisible.value = false;
+    addNews.value?.resetFields()
+    newsItem.newsTitle = '';
+    newsItem.newsContent = '';
+    newsItem.newsDate = '';
+
+}
+const resetNewsItem = () => {
+    newsItem.newsTitle = '';
+    newsItem.newsContent = '';
+    newsItem.newsDate = '';
+}
+const rules = reactive({
+    newsTitle: [
+        { required: true, message: '请输入标题', trigger: 'blur' }
+    ],
+
+    newsDate: [
+        { required: true, message: '请选择日期', trigger: 'blur' }
+    ],
+    newsContent: [
+        { required: true, message: '请输入详情', trigger: 'blur' }
+    ]
+})
+</script>
+<style scoped>
+.tools {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.el-input {
+    margin-right: 10px;
+}
+</style>

@@ -1,0 +1,34 @@
+view.data-v-750d9d75,
+scroll-view.data-v-750d9d75 {
+  box-sizing: border-box;
+}
+.data-v-750d9d75::-webkit-scrollbar,.data-v-750d9d75::-webkit-scrollbar,.data-v-750d9d75::-webkit-scrollbar {
+  display: none;
+  width: 0 !important;
+  height: 0 !important;
+  -webkit-appearance: none;
+  background: transparent;
+}
+.u-scroll-box.data-v-750d9d75 {
+  position: relative;
+}
+.u-scroll-view.data-v-750d9d75 {
+  width: 100%;
+  white-space: nowrap;
+  position: relative;
+}
+.u-tab-item.data-v-750d9d75 {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  transition-property: background-color, color;
+}
+.u-tab-bar.data-v-750d9d75 {
+  position: absolute;
+  bottom: 0;
+}
+.u-tabs-scroll-flex.data-v-750d9d75 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}

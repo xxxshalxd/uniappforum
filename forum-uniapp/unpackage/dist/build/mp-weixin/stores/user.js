@@ -1,0 +1,1 @@
+"use strict";const e=require("../common/vendor.js").defineStore("user",{state:()=>({userInfo:{id:null,username:""},token:"",isLoggedIn:!1}),actions:{login(e){this.token=`fake-token-${e.username}`,this.userInfo=e,this.isLoggedIn=!0},logout(){this.token="",this.userInfo={id:null,username:""},this.isLoggedIn=!1}}});exports.useUserStore=e;

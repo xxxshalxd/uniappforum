@@ -1,0 +1,1 @@
+<view style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%"><text style="font-size:60rpx">韩山师范校园地图</text><image src="{{a}}" alt="" mode="aspectFit" style="height:600rpx"/></view>

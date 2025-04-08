@@ -1,0 +1,5 @@
+<mapper namespace="com.lxd.forumbackend.news.mapper.NewsMapper">
+    <select id="selectAllNews" resultType="com.lxd.forumbackend.news.entity.NewsEntity">
+        SELECT id, title, image, updateDate, details FROM news
+    </select>
+</mapper>

@@ -1,0 +1,1 @@
+"use strict";const e=require("../common/vendor.js"),t=e.axios.create({baseURL:"http://localhost:10086",timeout:1e4,withCredentials:!0,adapter:e.mpAdapter});t.interceptors.request.use((e=>(e.headers["Content-Type"]="application/json",e)),(e=>Promise.reject(e))),t.interceptors.response.use((e=>e),(e=>Promise.reject(e))),exports.http=t;

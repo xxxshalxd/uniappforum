@@ -1,0 +1,106 @@
+{
+  "pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+    {
+      "path": "pages/index/index",
+      "style": {
+        "navigationStyle": "custom", // 隐藏系统导航栏
+        "enablePullDownRefresh": true,
+        "navigationBarTextStyle": "white" // 状态栏字体为白色，只能为 white-白色，black-黑色 二选一
+
+      }
+    },
+    {
+      "path": "pages/square/square",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarBackgroundColor": "#FFFFFF"
+        // "app-plus": {
+        //   "titleNView": false
+        // }
+      }
+    },
+    {
+      "path": "pages/user/user",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarBackgroundColor": "#FFFFFF"
+      }
+    },
+    {
+      "path": "pages/spark/spark",
+      "style": {
+        "navigationStyle": "custom",
+
+        "navigationBarBackgroundColor": "#FFFFFF"
+      }
+    },
+    {
+      "path": "pages/affair/affair",
+      "style": {
+        "navigationBarTitleText": ""
+
+      }
+    },
+    {
+      "path": "pages/recommend/recommend",
+      "style": {
+        "navigationBarTitleText": ""
+      }
+    },
+    {
+      "path": "pages/newsDetail/newsDetail",
+      "style": {
+        // "navigationBarTitleText": "新闻详情",
+        "navigationStyle": "custom",
+        "navigationBarBackgroundColor": "#FFFFFF"
+
+      }
+    },
+    {
+      "path": "pages/postsDetail/postsDetail",
+      "style": {
+        // "navigationBarTitleText" : ""
+        "navigationStyle": "custom",
+        "navigationBarBackgroundColor": "#FFFFFF"
+
+      }
+    }
+
+  ],
+  "globalStyle": {
+    "navigationBarTextStyle": "black",
+
+    "backgroundColor": "#F8F8F8"
+    // "app-plus": {
+    //   "titleNView": false
+    // }
+
+  },
+  "tabBar": {
+    "color": "#7A7E83",
+    "selectedColor": "#2c2c2c",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "white",
+    "list": [{
+        "pagePath": "pages/index/index", // 首页页面的路径
+        "text": "主页",
+        "iconPath": "static/tabbar/home-1.png", // 首页未选中时的图标
+        "selectedIconPath": "static/tabbar/home.png" // 首页选中时的图标
+      },
+      {
+        "pagePath": "pages/square/square", // 广场页面的路径
+        "text": "广场",
+        "iconPath": "static/tabbar/square-1.png",
+        "selectedIconPath": "static/tabbar/square.png"
+      },
+      {
+        "pagePath": "pages/user/user", // 我的页面的路径
+        "text": "我的",
+        "iconPath": "static/tabbar/my-1.png",
+        "selectedIconPath": "static/tabbar/my.png"
+      }
+    ]
+  },
+  "uniIdRouter": {}
+
+}

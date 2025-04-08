@@ -1,0 +1,129 @@
+.u-tabs {
+  background-color: navajowhite;
+}
+uni-popup.popOut {
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 90%;
+  max-width: 500px;
+  margin: 20px auto;
+}
+.popup-content {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  overflow: hidden;
+}
+ .popup-image {
+  max-width: 100% !important;
+  max-height: 300px !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  object-fit: cover !important;
+}
+.demo-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333333;
+  text-align: center;
+}
+.demo-detail {
+  font-size: 14px;
+  color: #666666;
+  line-height: 1.5;
+  text-align: center;
+}
+.swiper-container {
+  height: 180px;
+}
+.swiper-container .item {
+  height: 180px;
+}
+.swiper-container .imgs {
+  height: 100%;
+  width: 100%;
+}
+.demo-warter-left {
+  border-radius: 8px;
+  margin: 5px 0px 5px 5px;
+  background-color: #ffffff;
+  padding: 8px;
+  position: relative;
+}
+.demo-warter-right {
+  border-radius: 8px;
+  margin: 5px 5px 5px 0px;
+  background-color: #ffffff;
+  padding: 8px;
+  position: relative;
+}
+.u-close {
+  position: absolute;
+  top: 32rpx;
+  right: 32rpx;
+}
+.demo-image {
+  width: 100%;
+  border-radius: 4px;
+}
+.demo-title {
+  font-size: 30rpx;
+  margin-top: 5px;
+  color: #303133;
+}
+.demo-tag {
+  display: flex;
+  margin-top: 5px;
+}
+.demo-tag-owner {
+  background-color: #fa3534;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  padding: 4rpx 14rpx;
+  border-radius: 50rpx;
+  font-size: 20rpx;
+  line-height: 1;
+}
+.demo-tag-text {
+  border: 1px solid #2979ff;
+  color: #2979ff;
+  margin-left: 10px;
+  border-radius: 50rpx;
+  line-height: 1;
+  padding: 4rpx 14rpx;
+  display: flex;
+  align-items: center;
+  border-radius: 50rpx;
+  font-size: 20rpx;
+}
+.demo-price {
+  font-size: 30rpx;
+  color: #fa3534;
+  margin-top: 5px;
+}
+.u-navbar {
+  width: 100%;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+.text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: purple;
+  border-radius: 10px;
+  width: 100%;
+}
+uni-view.popup-content {
+  width: 350px;
+  height: 400px;
+}
